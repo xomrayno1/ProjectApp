@@ -2,7 +2,6 @@ package com.app.rest.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.modelmapper.ModelMapper;
@@ -23,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.exception.ApplicationException;
-import com.app.model.Category;
 import com.app.model.Roles;
 import com.app.model.Users;
 import com.app.model.request.CreateUserRequest;

@@ -27,14 +27,25 @@ public interface Constant {
 	public static final String CATEGORY_UPDATE = "/category_update";
 	public static final String CATEGORY_CREATE = "/category_create";
 	public static final String CATEGORY_GET_LIST_ACTIVE = "/category_get_list_active";
+	
+	//shop API
+	public static final String SHOP_API = API_PREFIX + "/shop";
+	public static final String SHOP_GET_LIST_PAGING_SORT_SEARCH_FILTER = "/shop_get_list_paging_sort_search_filter";
+	public static final String SHOP_GET_DETAIL= "/shop_get_detail/{shopId}";
+	public static final String SHOP_DELETE = "/shop_delete";
+	public static final String SHOP_UPDATE = "/shop_update";
+	public static final String SHOP_CREATE = "/shop_create";
+	public static final String SHOP_GET_LIST_ACTIVE = "/shop_get_list_active";
+	
+	//warehouse API
+	public static final String WAREHOUSE_API = API_PREFIX + "/warehouse";
+	public static final String WAREHOUSE_GET_LIST_PAGING_SORT_SEARCH_FILTER = "/warehouse_get_list_paging_sort_search_filter";
+	public static final String WAREHOUSE_GET_DETAIL= "/warehouse_get_detail/{warehouseId}";
+	public static final String WAREHOUSE_DELETE = "/warehouse_delete";
+	public static final String WAREHOUSE_UPDATE = "/warehouse_update";
+	public static final String WAREHOUSE_CREATE = "/warehouse_create";
+	public static final String WAREHOUSE_GET_LIST_ACTIVE = "/warehouse_get_list_active";
  
-	
-	//contact api
-	public static final String CONTACT_API = API_PREFIX + "/contact";
-	public static final String CONTACT_GET_LIST_PAGING_SORT_SEARCH_FILTER = "/contact_get_list_paging_sort_search_filter";
-	public static final String CONTACT_CREATE = "/contact_create";
-	public static final String CONTACT_CHANGE_STATUS = "/contact_change_status";
-	
 	//user api
 	public static final String USER_API = API_PREFIX + "/user";
 	public static final String USER_GET_LIST_PAGING_SORT_SEARCH_FILTER = "/user_get_list_paging_sort_search_filter";
@@ -46,8 +57,7 @@ public interface Constant {
 	//auth
 	
 	public static final String AUTH_API = "/authenticate";
-	
-	 
+ 
 	
 	public static final String PATH_RESOURCE = "src/main/resources";
 	public static final String PATH_UPLOAD = "uploads";
@@ -68,22 +78,40 @@ public interface Constant {
 
 	}
 	
-	enum BookingStatus {
-		CHO_XU_LY(0),
-		DA_HOAN_THANH(1),
-		HUY(-1)
+	enum ShopType {
+		PROVINCE(1),
+		DISTRICT(2),
+		WARD(3),
+		VILLAGE(4)
 		;
 		
 		private final int value;
 
-		private BookingStatus(int value) {
+		private ShopType(int value) {
 			this.value = value;
 		}
 
 		public int getValue() {
 			return value;
 		}
- 
+	}
+	
+	enum WareHouseType {
+		KHO_CHAN(1),
+		KHO_LE(2),
+		KHO_CO_SO(3),
+		QUAY_THUOC(4)
+		;
+		
+		private final int value;
+
+		private WareHouseType(int value) {
+			this.value = value;
+		}
+
+		public int getValue() {
+			return value;
+		}
 	}
 	
 	enum ROLE {

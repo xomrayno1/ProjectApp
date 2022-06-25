@@ -16,31 +16,40 @@ public enum APIStatus {
 	INVALID_PARAMETER(407, "Invalid parameters"),
 	ERR_PROCESS(500, "Lỗi xử lý"),
  
-	//notify message product
+	//notify err message product
     ERR_PRODUCT_LIST_IS_EMPTY(116, "Danh sách sản phẩm trống."),//List of product is null
     ERR_PRODUCT_ID_NOT_EXIST(117, "Sản phẩm không tồn tại."),//Product not exists
-    ERR_PRODUCT_NAME_ALREADY_EXISTS(118, "Tên sản phẩm đã tồn tại."),//Product already exists
+    ERR_PRODUCT_CODE_ALREADY_EXISTS(118, "Mã sản phẩm đã tồn tại."),//Product already exists
     ERR_CREATE_PRODUCT(119, "Không thể thêm sản phẩm."),//Can't create product
     ERR_UPDATE_PRODUCT(120, "Không thể cập nhật sản phẩm."),//Can't update product
     ERR_PRODUCT_CATEGORY_IS_NULL(121, "Danh mục không được để trống."),//Can't update product
-	//notify message category
+	//notify err message category
 	ERR_CATEGORY_LIST_IS_EMPTY(156, "Danh sách danh mục trống."),
 	ERR_CATEGORY_ID_NOT_EXIST(157, "Danh mục không tồn tại."),
 	ERR_CATEGORY_NAME_ALREADY_EXISTS(158, "Danh mục đã tồn tại."),
 	ERR_CREATE_CATEGORY(159, "Không thể thêm danh mục."),
 	ERR_UPDATE_CATEGORY(160, "Không thể cập nhật danh mục."),
-	
-	 
-	//user
+	//notify err message user
 	ERR_USER_ID_NOT_EXIST(157, "User không tồn tại."),
 	ERR_USER_NAME_ALREADY_EXISTS(158,"User đã tồn tại."),
 	ERR_CREATE_USER(159, "Không thể thêm user."),
 	ERR_UPDATE_USER(160, "Không thể cập nhật user."),
+	//notify err message shop
+	ERR_SHOP_LIST_IS_EMPTY(156, "Danh sách đơn vị trống."),
+	ERR_SHOP_ID_NOT_EXIST(157, "Đơn vị không tồn tại."),
+	ERR_SHOP_CODE_ALREADY_EXISTS(158, "Đơn vị đã tồn tại."),
+	ERR_CREATE_SHOP(159, "Không thể thêm đơn vị."),
+	ERR_UPDATE_SHOP(160, "Không thể cập nhật đơn vị."),
+	//notify err message warehouse
+	ERR_WAREHOUSE_LIST_IS_EMPTY(156, "Danh sách kho trống."),
+	ERR_WAREHOUSE_ID_NOT_EXIST(157, "Kho không tồn tại."),
+	ERR_WAREHOUSE_CODE_ALREADY_EXISTS(158, "Kho đã tồn tại."),
+	ERR_CREATE_WAREHOUSE(159, "Không thể thêm kho."),
+	ERR_UPDATE_WAREHOUSE(160, "Không thể cập nhật kho."),
 	;
 	
-	private static Map<Integer, APIStatus>   values = new HashMap<Integer, APIStatus>(
-			APIStatus.values().length);
-	
+	private static Map<Integer, APIStatus> values = new HashMap<Integer, APIStatus>(APIStatus.values().length);
+
 	private final int code;
 	private final String description;
 	
