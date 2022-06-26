@@ -1,6 +1,5 @@
 package com.app.service.impl;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +58,7 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public Product findByName(String name) {
 		// TODO Auto-generated method stub
-		return proRepo.findByName(name).orElse(null);
+		return null;
 	}
 
 	@Override
@@ -71,19 +70,19 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public Product findByNameEn(String nameEn) {
 		// TODO Auto-generated method stub
-		return proRepo.findByNameEn(nameEn);
+		return proRepo.findByNameEn(nameEn).orElse(null);
 	}
 
 	@Override
 	public Product findByNameVi(String nameVi) {
 		// TODO Auto-generated method stub
-		return proRepo.findByNameVi(nameVi);
+		return proRepo.findByNameVi(nameVi).orElse(null);
 	}
 
 	@Override
 	public Product findByCode(String code) {
 		// TODO Auto-generated method stub
-		return proRepo.findByCode(code);
+		return proRepo.findByCode(code).orElse(null);
 	}
 
 }
