@@ -35,7 +35,14 @@ public class Users  extends BaseEntity{
 			inverseJoinColumns = @JoinColumn(name="role_id")
 			)	
 	private Set<Roles> roles ;
- 
+	
+	private String phone;
+	private Integer province;
+	private Integer district;
+	private Integer ward;
+	private Integer type; // loai nhan luc
+	private Integer education; // chuc danh 
+	private Integer level;	 // chuc vu
 	
 	public Users(Long id) {
 		super();
@@ -91,6 +98,48 @@ public class Users  extends BaseEntity{
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public Integer getProvince() {
+		return province;
+	}
+	public void setProvince(Integer province) {
+		this.province = province;
+	}
+	public Integer getDistrict() {
+		return district;
+	}
+	public void setDistrict(Integer district) {
+		this.district = district;
+	}
+	public Integer getWard() {
+		return ward;
+	}
+	public void setWard(Integer ward) {
+		this.ward = ward;
+	}
+	public Integer getType() {
+		return type;
+	}
+	public void setType(Integer type) {
+		this.type = type;
+	}
+	public Integer getEducation() {
+		return education;
+	}
+	public void setEducation(Integer education) {
+		this.education = education;
+	}
+	public Integer getLevel() {
+		return level;
+	}
+	public void setLevel(Integer level) {
+		this.level = level;
 	}
  
 

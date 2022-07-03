@@ -2,6 +2,7 @@ package com.app.rest.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.modelmapper.ModelMapper;
@@ -110,6 +111,13 @@ public class UserRestController {
 			user.setGender(createUserRequest.getGender());
 			user.setPassword(bcryptEncoder.encode(createUserRequest.getPassword()));
 			user.setBirthDay(sdf.parse(createUserRequest.getBirthDay()));
+			user.setPhone(createUserRequest.getPhone());
+			user.setProvince(createUserRequest.getProvince());
+			user.setDistrict(createUserRequest.getDistrict());
+			user.setWard(createUserRequest.getWard());
+			user.setType(createUserRequest.getType());
+			user.setEducation(createUserRequest.getEducation());
+			user.setLevel(createUserRequest.getLevel());
 			userService.save(user);
 			log.info("create user successfully");
 			return ResponseUtil.responseSuccess("Create user successfully");
@@ -168,6 +176,13 @@ public class UserRestController {
 				if(!userById.getPassword().equals(updateUserRequest.getPassword())) {
 					userById.setPassword(bcryptEncoder.encode(updateUserRequest.getPassword()));
 				}
+				userById.setPhone(updateUserRequest.getPhone());
+				userById.setProvince(updateUserRequest.getProvince());
+				userById.setDistrict(updateUserRequest.getDistrict());
+				userById.setWard(updateUserRequest.getWard());
+				userById.setType(updateUserRequest.getType());
+				userById.setEducation(updateUserRequest.getEducation());
+				userById.setLevel(updateUserRequest.getLevel());
 				userService.save(userById);
 				log.info("update user successfully");
 				return ResponseUtil.responseSuccess("update user successfully");
@@ -177,6 +192,22 @@ public class UserRestController {
 			}
 		}else {
 			log.error("error update user id not exist");
+			throw new ApplicationException(APIStatus.ERR_USER_ID_NOT_EXIST);
+		}
+	}
+	
+	@GetMapping(value = Constant.USER_GET_BY_LEVEL)
+	public ResponseEntity<APIResponse> getByLevel(@PathVariable("level") Integer level){
+		try {
+			List<Users> users = userService.findByLevel(level);
+			if(users == null) {
+				throw new ApplicationException(APIStatus.ERR_USER_LEVEL_NOT_EXIST);
+			}
+			log.info("get user detail successfully");
+			return ResponseUtil.responseSuccess(users);
+		} catch (Exception e) {
+			// TODO: handle exception
+			log.error("error user id not exists");
 			throw new ApplicationException(APIStatus.ERR_USER_ID_NOT_EXIST);
 		}
 	}

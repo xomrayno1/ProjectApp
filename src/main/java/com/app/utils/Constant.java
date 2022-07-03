@@ -18,6 +18,7 @@ public interface Constant {
 	public static final String PRODUCT_CREATE = "/product_create";
 	public static final String PRODUCT_UPLOAD = "/product_upload";
 	public static final String PRODUCT_GET_LIST_ACTIVE = "/product_get_list_active";
+	public static final String PRODUCT_GET_BY_CATEGORY = "/product_get_by_category/{cateId}";
 	
 	//category API
 	public static final String CATEGORY_API = API_PREFIX + "/categories";
@@ -53,6 +54,34 @@ public interface Constant {
 	public static final String USER_DELETE = "/user_delete";
 	public static final String USER_UPDATE = "/user_update";
 	public static final String USER_CREATE = "/user_create";
+	public static final String USER_GET_BY_LEVEL = "/user_get_by_level/{level}";
+	
+	//department api
+	public static final String DEPARTMENT_API = API_PREFIX + "/departments";
+	public static final String DEPARTMENT_GET_LIST_PAGING_SORT_SEARCH_FILTER = "/department_get_list_paging_sort_search_filter";
+	public static final String DEPARTMENT_GET_DETAIL= "/department_get_detail/{departmentId}";
+	public static final String DEPARTMENT_DELETE = "/department_delete";
+	public static final String DEPARTMENT_UPDATE = "/department_update";
+	public static final String DEPARTMENT_CREATE = "/department_create";
+	public static final String DEPARTMENT_GET_LIST_ACTIVE = "/department_get_list_active";
+	
+	//supplier api
+	public static final String SUPPLIER_API = API_PREFIX + "/suppliers";
+	public static final String SUPPLIER_GET_LIST_PAGING_SORT_SEARCH_FILTER = "/supplier_get_list_paging_sort_search_filter";
+	public static final String SUPPLIER_GET_DETAIL= "/supplier_get_detail/{supplierId}";
+	public static final String SUPPLIER_DELETE = "/supplier_delete";
+	public static final String SUPPLIER_UPDATE = "/supplier_update";
+	public static final String SUPPLIER_CREATE = "/supplier_create";
+	public static final String SUPPLIER_GET_LIST_ACTIVE = "/supplier_get_list_active";
+	
+	//drug api
+	public static final String DRUG_API = API_PREFIX + "/drugs";
+	public static final String DRUG_GET_LIST_PAGING_SORT_SEARCH_FILTER = "/drug_get_list_paging_sort_search_filter";
+	public static final String DRUG_GET_DETAIL= "/drug_get_detail/{drugId}";
+	public static final String DRUG_DELETE = "/drug_delete";
+	public static final String DRUG_UPDATE = "/drug_update";
+	public static final String DRUG_CREATE = "/drug_create";
+	public static final String DRUG_GET_LIST_ACTIVE = "/drug_get_list_active";
 	
 	//auth
 	

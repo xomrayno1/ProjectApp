@@ -8,6 +8,13 @@ public class CreateUserRequest {
 	private int gender;
 	private String birthDay;
 	private String address;
+	private String phone;
+	private Integer province;
+	private Integer district;
+	private Integer ward;
+	private Integer type; // loai nhan luc
+	private Integer education; // chuc danh 
+	private Integer level;	 // chuc vu
 	
 	public String getUsername() {
 		return username;
@@ -51,6 +58,48 @@ public class CreateUserRequest {
 	}
 	public void setBirthDay(String birthDay) {
 		this.birthDay = birthDay;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public Integer getProvince() {
+		return province;
+	}
+	public void setProvince(Integer province) {
+		this.province = province;
+	}
+	public Integer getDistrict() {
+		return district;
+	}
+	public void setDistrict(Integer district) {
+		this.district = district;
+	}
+	public Integer getWard() {
+		return ward;
+	}
+	public void setWard(Integer ward) {
+		this.ward = ward;
+	}
+	public Integer getType() {
+		return type;
+	}
+	public void setType(Integer type) {
+		this.type = type;
+	}
+	public Integer getEducation() {
+		return education;
+	}
+	public void setEducation(Integer education) {
+		this.education = education;
+	}
+	public Integer getLevel() {
+		return level;
+	}
+	public void setLevel(Integer level) {
+		this.level = level;
 	}
 	
  

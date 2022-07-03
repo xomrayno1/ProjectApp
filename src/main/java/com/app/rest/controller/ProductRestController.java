@@ -1,6 +1,7 @@
 package com.app.rest.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 
@@ -162,5 +163,15 @@ public class ProductRestController {
 			throw new ApplicationException(APIStatus.ERR_PRODUCT_ID_NOT_EXIST);
 		}
 		return ResponseUtil.responseSuccess("Update product successfully");
+	}
+	
+	@GetMapping(Constant.PRODUCT_GET_BY_CATEGORY)
+	public ResponseEntity<APIResponse> getByCategory(@PathVariable("cateId") long cateId) {
+		Category category = categoryService.findById(cateId);
+		if(category != null) {
+			List<Product> products = productService.findByCategory(category);
+			return ResponseUtil.responseSuccess(products);
+		}
+		throw new ApplicationException(APIStatus.ERR_CATEGORY_ID_NOT_EXIST);
 	}
 }

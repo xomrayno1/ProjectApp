@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import com.app.model.Category;
 import com.app.model.Product;
 import com.app.repository.ProductRepository;
 import com.app.response.specification.ProductSpecification;
@@ -83,6 +84,12 @@ public class ProductServiceImpl implements ProductService{
 	public Product findByCode(String code) {
 		// TODO Auto-generated method stub
 		return proRepo.findByCode(code).orElse(null);
+	}
+
+	@Override
+	public List<Product> findByCategory(Category category) {
+		// TODO Auto-generated method stub
+		return proRepo.findByCategory(category);
 	}
 
 }

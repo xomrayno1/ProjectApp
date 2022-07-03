@@ -30,4 +30,6 @@ public interface UserService {
 	List<Users> findAll();
 	
 	Page<Users> doFilterSearchPagingUsers(String searchKey, Integer status, int pageSize, int pageNumber);
+	
+	List<Users> findByLevel(Integer level);
 }

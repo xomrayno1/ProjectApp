@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.app.model.Users;
@@ -20,8 +19,6 @@ public class UserServiceImpl  implements UserService{
 
 	@Autowired
 	UserRepository userRepo;
-	
-
 	
 	@Override
 	public Users getOne(Long id) {
@@ -90,6 +87,12 @@ public class UserServiceImpl  implements UserService{
 		// TODO Auto-generated method stub
 		return userRepo.findAll(new UserSpecification(searchKey, status),
 				PageRequest.of(pageNumber - 1, pageSize));
+	}
+
+	@Override
+	public List<Users> findByLevel(Integer level) {
+		// TODO Auto-generated method stub
+		return userRepo.findByLevel(level);
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.app.repository;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -28,4 +30,7 @@ public interface UserRepository extends PagingAndSortingRepository<Users, Long>,
 	
 	@Query("SELECT U FROM Users U WHERE U.username = ?1 and U.status = 1")
 	Users findByUsername(String username);
+	
+	List<Users> findByLevel(Integer level);
+	
 }
