@@ -34,8 +34,10 @@ public class UserSpecification implements Specification<Users>{
 		
 		if(searchKey != null && !searchKey.trim().isEmpty()) {
 			String wrapSearch = "%" + searchKey.trim() + "%";
-			Predicate cateName = criteriaBuilder.like(root.get("username"), wrapSearch);
-			predicates.add(cateName);
+			Predicate cateName = criteriaBuilder.like(root.get("name"), wrapSearch);
+			Predicate cateCode = criteriaBuilder.like(root.get("code"), wrapSearch);
+			Predicate searchPredicate = criteriaBuilder.or(cateName, cateCode);
+			predicates.add(searchPredicate);
 		}
 		
 		if(status != null) {
