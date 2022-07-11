@@ -24,6 +24,8 @@ public class Users  extends BaseEntity{
 	private String username;
 	private String password;
 	private String email;
+	private String name;
+	private String code;
 	private int gender;
 	@Temporal(TemporalType.DATE)
 	private Date birthDay;
@@ -150,6 +152,18 @@ public class Users  extends BaseEntity{
 	}
 	public void setDepartment(Department department) {
 		this.department = department;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
  
 

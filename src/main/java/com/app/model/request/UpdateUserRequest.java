@@ -17,6 +17,8 @@ public class UpdateUserRequest {
 	private Integer education; // chuc danh 
 	private Integer level;	 // chuc vu
 	private Long departmentId;
+	private String name;
+	private String code;
 	
 	public String getBirthDay() {
 		return birthDay;
@@ -114,6 +116,18 @@ public class UpdateUserRequest {
 	}
 	public void setDepartmentId(Long departmentId) {
 		this.departmentId = departmentId;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
  
 	

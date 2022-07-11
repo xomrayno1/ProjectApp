@@ -123,7 +123,12 @@ public class UserRestController {
 			user.setType(createUserRequest.getType());
 			user.setEducation(createUserRequest.getEducation());
 			user.setLevel(createUserRequest.getLevel());
+			user.setName(createUserRequest.getName());
+			user.setCode(createUserRequest.getCode());
 			Department department = departmentService.findById(createUserRequest.getDepartmentId());
+			if(department == null) {
+				throw new ApplicationException(APIStatus.ERR_USER_LEVEL_NOT_EXIST);
+			}
 			user.setDepartment(department);
 			userService.save(user);
 			log.info("create user successfully");
@@ -191,7 +196,12 @@ public class UserRestController {
 				userById.setEducation(updateUserRequest.getEducation());
 				userById.setLevel(updateUserRequest.getLevel());
 				Department department = departmentService.findById(updateUserRequest.getDepartmentId());
+				if(department == null) {
+					throw new ApplicationException(APIStatus.ERR_USER_LEVEL_NOT_EXIST);
+				}
 				userById.setDepartment(department);
+				userById.setName(updateUserRequest.getName());
+				userById.setCode(updateUserRequest.getCode());
 				userService.save(userById);
 				log.info("update user successfully");
 				return ResponseUtil.responseSuccess("update user successfully");
