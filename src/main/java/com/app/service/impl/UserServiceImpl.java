@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.app.model.Department;
 import com.app.model.Users;
 import com.app.repository.UserRepository;
 import com.app.response.specification.UserSpecification;
@@ -93,6 +94,12 @@ public class UserServiceImpl  implements UserService{
 	public List<Users> findByLevel(Integer level) {
 		// TODO Auto-generated method stub
 		return userRepo.findByLevel(level);
+	}
+
+	@Override
+	public List<Users> findByDepartment(Department department) {
+		// TODO Auto-generated method stub
+		return userRepo.findByDepartment(department);
 	}
 
 }

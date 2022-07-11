@@ -55,6 +55,7 @@ public interface Constant {
 	public static final String USER_UPDATE = "/user_update";
 	public static final String USER_CREATE = "/user_create";
 	public static final String USER_GET_BY_LEVEL = "/user_get_by_level/{level}";
+	public static final String USER_GET_BY_DEPARTMENT = "/user_get_by_department/{departmentId}";
 	
 	//department api
 	public static final String DEPARTMENT_API = API_PREFIX + "/departments";

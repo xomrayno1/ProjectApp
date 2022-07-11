@@ -56,7 +56,7 @@ public class DrugRestController {
 	
 	@PostMapping(value = Constant.DRUG_GET_LIST_PAGING_SORT_SEARCH_FILTER)
 	public ResponseEntity<APIResponse> getListPagingSortSearchFilter(@RequestBody DrugPagingSearchSortModel cpssm){
-		Page<Drug> drugs =  drugService.doFilterSearchPagingDrug(cpssm.getSearchKey(), cpssm.getLoaiVatTu(), .getStatus(),
+		Page<Drug> drugs =  drugService.doFilterSearchPagingDrug(cpssm.getSearchKey(), cpssm.getLoaiVatTu(), cpssm.getStatus(),
 										cpssm.getPageSize(), cpssm.getPageNumber());
 		try {
 			if(drugs == null) {
@@ -72,7 +72,7 @@ public class DrugRestController {
 	}
 	
 	@GetMapping(value = Constant.DRUG_GET_DETAIL)
-	public ResponseEntity<APIResponse> getDrugDetail(@PathVariable("cateId") long cateId){
+	public ResponseEntity<APIResponse> getDrugDetail(@PathVariable("drugId") long cateId){
 		try {
 			Drug drug = drugService.findById(cateId);
 			if(drug == null) {

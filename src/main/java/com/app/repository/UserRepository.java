@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
+import com.app.model.Department;
 import com.app.model.Users;
  
 @Repository
@@ -32,5 +33,7 @@ public interface UserRepository extends PagingAndSortingRepository<Users, Long>,
 	Users findByUsername(String username);
 	
 	List<Users> findByLevel(Integer level);
+	
+	List<Users> findByDepartment(Department department);
 	
 }

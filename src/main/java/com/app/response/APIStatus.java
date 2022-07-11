@@ -35,6 +35,7 @@ public enum APIStatus {
 	ERR_CREATE_USER(159, "Không thể thêm user."),
 	ERR_UPDATE_USER(160, "Không thể cập nhật user."),
 	ERR_USER_LEVEL_NOT_EXIST(157, "Chức vụ không tồn tại."),
+	ERR_USER_DEPARTMENT_NOT_EXIST(157,"Phòng ban không tồn tại."),
 	//notify err message shop
 	ERR_SHOP_LIST_IS_EMPTY(156, "Danh sách đơn vị trống."),
 	ERR_SHOP_ID_NOT_EXIST(157, "Đơn vị không tồn tại."),

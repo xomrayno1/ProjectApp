@@ -15,6 +15,7 @@ public class CreateUserRequest {
 	private Integer type; // loai nhan luc
 	private Integer education; // chuc danh 
 	private Integer level;	 // chuc vu
+	private Long departmentId;
 	
 	public String getUsername() {
 		return username;
@@ -100,6 +101,12 @@ public class CreateUserRequest {
 	}
 	public void setLevel(Integer level) {
 		this.level = level;
+	}
+	public Long getDepartmentId() {
+		return departmentId;
+	}
+	public void setDepartmentId(Long departmentId) {
+		this.departmentId = departmentId;
 	}
 	
  

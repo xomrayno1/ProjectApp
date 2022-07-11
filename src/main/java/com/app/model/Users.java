@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -43,6 +44,9 @@ public class Users  extends BaseEntity{
 	private Integer type; // loai nhan luc
 	private Integer education; // chuc danh 
 	private Integer level;	 // chuc vu
+	@ManyToOne
+	@JoinColumn(name = "department_id")
+	private Department department;
 	
 	public Users(Long id) {
 		super();
@@ -140,6 +144,12 @@ public class Users  extends BaseEntity{
 	}
 	public void setLevel(Integer level) {
 		this.level = level;
+	}
+	public Department getDepartment() {
+		return department;
+	}
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
  
 

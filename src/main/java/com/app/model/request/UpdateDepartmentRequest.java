@@ -9,6 +9,7 @@ public class UpdateDepartmentRequest {
 	private Integer roomType;
 	private Integer level;
 	private Integer departmentCodeBC;
+	 
 	
 	public Long getId() {
 		return id;

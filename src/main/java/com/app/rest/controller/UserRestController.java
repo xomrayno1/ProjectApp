@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.aspectj.weaver.patterns.IfPointcut.IfFalsePointcut;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.exception.ApplicationException;
+import com.app.model.Department;
 import com.app.model.Roles;
 import com.app.model.Users;
 import com.app.model.request.CreateUserRequest;
@@ -31,6 +33,7 @@ import com.app.model.request.UpdateUserRequest;
 import com.app.model.request.UserPagingSearchSortModel;
 import com.app.response.APIResponse;
 import com.app.response.APIStatus;
+import com.app.service.DepartmentService;
 import com.app.service.RoleService;
 import com.app.service.UserService;
 import com.app.utils.Constant;
@@ -44,6 +47,7 @@ public class UserRestController {
 
 	private UserService userService;
 	private RoleService roleService;
+	private DepartmentService departmentService;
 	@Autowired
 	private PasswordEncoder bcryptEncoder;
 	
@@ -53,9 +57,10 @@ public class UserRestController {
 	private SimpleDateFormat sdf = new SimpleDateFormat(Constant.PATTERN_DATE_DDMMYYYY);
 
 	@Autowired
-	public UserRestController(UserService userService, RoleService roleService) {
+	public UserRestController(UserService userService, RoleService roleService, DepartmentService departmentService) {
 		this.userService = userService;
 		this.roleService = roleService;
+		this.departmentService = departmentService;
 	}
  
 	
@@ -118,6 +123,8 @@ public class UserRestController {
 			user.setType(createUserRequest.getType());
 			user.setEducation(createUserRequest.getEducation());
 			user.setLevel(createUserRequest.getLevel());
+			Department department = departmentService.findById(createUserRequest.getDepartmentId());
+			user.setDepartment(department);
 			userService.save(user);
 			log.info("create user successfully");
 			return ResponseUtil.responseSuccess("Create user successfully");
@@ -183,6 +190,8 @@ public class UserRestController {
 				userById.setType(updateUserRequest.getType());
 				userById.setEducation(updateUserRequest.getEducation());
 				userById.setLevel(updateUserRequest.getLevel());
+				Department department = departmentService.findById(updateUserRequest.getDepartmentId());
+				userById.setDepartment(department);
 				userService.save(userById);
 				log.info("update user successfully");
 				return ResponseUtil.responseSuccess("update user successfully");
@@ -211,4 +220,26 @@ public class UserRestController {
 			throw new ApplicationException(APIStatus.ERR_USER_ID_NOT_EXIST);
 		}
 	}
+	
+	@GetMapping(value = Constant.USER_GET_BY_DEPARTMENT)
+	public ResponseEntity<APIResponse> getByDepartment(@PathVariable("departmentId") Long departmentId){
+		try {
+			Department department = departmentService.findById(departmentId);
+			if(department != null) {
+				List<Users> users = userService.findByDepartment(department);
+				if(users == null) {
+					throw new ApplicationException(APIStatus.ERR_USER_DEPARTMENT_NOT_EXIST);
+				}
+				log.info("get user detail successfully");
+				return ResponseUtil.responseSuccess(users);
+			}else {
+				throw new ApplicationException(APIStatus.ERR_USER_DEPARTMENT_NOT_EXIST);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			log.error("error user id not exists");
+			throw new ApplicationException(APIStatus.ERR_USER_ID_NOT_EXIST);
+		}
+	}
+	
 }

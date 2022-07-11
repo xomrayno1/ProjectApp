@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import com.app.model.Department;
 import com.app.model.Users;
 
 
@@ -32,4 +33,6 @@ public interface UserService {
 	Page<Users> doFilterSearchPagingUsers(String searchKey, Integer status, int pageSize, int pageNumber);
 	
 	List<Users> findByLevel(Integer level);
+	
+	List<Users> findByDepartment(Department department);
 }
