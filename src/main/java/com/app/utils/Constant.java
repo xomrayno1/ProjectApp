@@ -41,7 +41,7 @@ public interface Constant {
 	//warehouse API
 	public static final String WAREHOUSE_API = API_PREFIX + "/warehouse";
 	public static final String WAREHOUSE_GET_LIST_PAGING_SORT_SEARCH_FILTER = "/warehouse_get_list_paging_sort_search_filter";
-	public static final String WAREHOUSE_GET_DETAIL= "/warehouse_get_detail/{warehouseId}";
+	public static final String WAREHOUSE_GET_DETAIL= "/warehouse_get_detail/{wareHouseId}";
 	public static final String WAREHOUSE_DELETE = "/warehouse_delete";
 	public static final String WAREHOUSE_UPDATE = "/warehouse_update";
 	public static final String WAREHOUSE_CREATE = "/warehouse_create";
@@ -83,6 +83,15 @@ public interface Constant {
 	public static final String DRUG_UPDATE = "/drug_update";
 	public static final String DRUG_CREATE = "/drug_create";
 	public static final String DRUG_GET_LIST_ACTIVE = "/drug_get_list_active";
+	
+	//patient api
+	public static final String PATIENT_API = API_PREFIX + "/patients";
+	public static final String PATIENT_GET_LIST_PAGING_SORT_SEARCH_FILTER = "/patient_get_list_paging_sort_search_filter";
+	public static final String PATIENT_GET_DETAIL= "/patient_get_detail/{patientId}";
+	public static final String PATIENT_DELETE = "/patient_delete";
+	public static final String PATIENT_UPDATE = "/patient_update";
+	public static final String PATIENT_CREATE = "/patient_create";
+	public static final String PATIENT_GET_LIST_ACTIVE = "/patient_get_list_active";
 	
 	//auth
 	

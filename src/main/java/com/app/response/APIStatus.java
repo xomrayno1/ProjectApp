@@ -66,6 +66,13 @@ public enum APIStatus {
 	ERR_DRUG_CODE_ALREADY_EXISTS(158, "Thuốc đã tồn tại."),
 	ERR_CREATE_DRUG(159, "Không thể thêm thuốc."),
 	ERR_UPDATE_DRUG(160, "Không thể cập nhật thuốc."),
+	
+	//notify err message patient
+	ERR_PATIENT_LIST_IS_EMPTY(156, "Danh sách bệnh nhân trống."),
+	ERR_PATIENT_ID_NOT_EXIST(157, "Bệnh nhân không tồn tại."),
+	ERR_PATIENT_CODE_ALREADY_EXISTS(158, "Bệnh nhân đã tồn tại."),
+	ERR_CREATE_PATIENT(159, "Không thể thêm bệnh nhân."),
+	ERR_UPDATE_PATIENT(160, "Không thể cập nhật bệnh nhân."),
 	;
 	
 	private static Map<Integer, APIStatus> values = new HashMap<Integer, APIStatus>(APIStatus.values().length);
