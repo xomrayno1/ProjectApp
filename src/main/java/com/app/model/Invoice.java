@@ -2,13 +2,17 @@ package com.app.model;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Invoice extends BaseEntity{
@@ -18,6 +22,12 @@ public class Invoice extends BaseEntity{
 	@ManyToOne
 	@JoinColumn(name="patient_id")
 	private Patient patient;
+	@ManyToOne
+	@JoinColumn(name="product_id")
+	private Product product;
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private Users users;
 	
 	private Integer objectType;
 	private Integer numberBHYT;
@@ -36,12 +46,14 @@ public class Invoice extends BaseEntity{
 	private String tuVanDieuTri;
 	private String dienBienDieuTri;
 	private Integer ketQuaKham;
-	@ManyToOne
-	@JoinColumn(name="user_id")
-	private Users users;
+
 	private Date dateEnd;
 	
 	private BigDecimal totalAmount;
+	
+	 @OneToMany(mappedBy = "invoice", fetch = FetchType.LAZY,
+	            cascade = CascadeType.ALL)
+	    private Set<InvoiceDetail> invoiceDetails;
 	
 	public Long getId() {
 		return id;
@@ -171,7 +183,18 @@ public class Invoice extends BaseEntity{
 	}
 	
 	
-	
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	public Set<InvoiceDetail> getInvoiceDetails() {
+		return invoiceDetails;
+	}
+	public void setInvoiceDetails(Set<InvoiceDetail> invoiceDetails) {
+		this.invoiceDetails = invoiceDetails;
+	}
 	
 	
 

@@ -12,6 +12,5 @@ public interface InvoiceRepository  extends CrudRepository<Invoice, Long>, JpaSp
 
 	@Override
 	List<Invoice> findAll();
- 
-	
+  
 }

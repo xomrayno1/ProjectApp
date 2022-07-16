@@ -93,6 +93,15 @@ public interface Constant {
 	public static final String PATIENT_CREATE = "/patient_create";
 	public static final String PATIENT_GET_LIST_ACTIVE = "/patient_get_list_active";
 	
+	//patient api
+	public static final String INVOICE_API = API_PREFIX + "/invoices";
+	public static final String INVOICE_GET_LIST_PAGING_SORT_SEARCH_FILTER = "/invoice_get_list_paging_sort_search_filter";
+	public static final String INVOICE_GET_DETAIL= "/invoice_get_detail/{invoiceId}";
+	public static final String INVOICE_DELETE = "/invoice_delete";
+	public static final String INVOICE_UPDATE = "/invoice_update";
+	public static final String INVOICE_CREATE = "/invoice_create";
+	public static final String INVOICE_GET_LIST_ACTIVE = "/invoice_get_list_active";
+	public static final String INVOICE_GET_LIST_DETAIL= "/invoice_get_list_detail/{invoiceId}";
 	//auth
 	
 	public static final String AUTH_API = "/authenticate";

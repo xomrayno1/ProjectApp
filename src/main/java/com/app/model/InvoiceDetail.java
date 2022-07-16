@@ -3,6 +3,7 @@ package com.app.model;
 import java.math.BigDecimal;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,16 +16,17 @@ public class InvoiceDetail extends BaseEntity{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
  
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name="invoice_id")
 	private Invoice invoice;
 	
 	@ManyToOne
-	@JoinColumn(name="product_id")
-	private Product product;
+	@JoinColumn(name="drug_id")
+	private Drug drug;
+	
+	private Integer quantity;
 	
 	private BigDecimal price;
-	private BigDecimal count;
 	private BigDecimal amout;
 	
 	public Long getId() {
@@ -39,29 +41,30 @@ public class InvoiceDetail extends BaseEntity{
 	public void setInvoice(Invoice invoice) {
 		this.invoice = invoice;
 	}
-	public Product getProduct() {
-		return product;
-	}
-	public void setProduct(Product product) {
-		this.product = product;
-	}
+ 
 	public BigDecimal getPrice() {
 		return price;
 	}
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
-	public BigDecimal getCount() {
-		return count;
-	}
-	public void setCount(BigDecimal count) {
-		this.count = count;
-	}
 	public BigDecimal getAmout() {
 		return amout;
 	}
 	public void setAmout(BigDecimal amout) {
 		this.amout = amout;
+	}
+	public Drug getDrug() {
+		return drug;
+	}
+	public void setDrug(Drug drug) {
+		this.drug = drug;
+	}
+	public Integer getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
 	
 	

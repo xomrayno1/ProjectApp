@@ -1,18 +1,21 @@
 package com.app.model.request;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class CreateInvoiceRequest {
 	private Long patientId;
+	private Long userId;
+	private Long productId;
 	
 	private Integer objectType;
 	private Integer numberBHYT;
-	private String fromDate;
-	private String toDate;
+	private String fromDateString;
+	private String toDateString;
 	private Integer routingType;
 	private Integer area;
 	private Integer form;
-	private String dateStart;
+	private String dateStartString;
 	
 	private String trieuChung;
 	private Integer benhChinh;
@@ -23,17 +26,36 @@ public class CreateInvoiceRequest {
 	private String dienBienDieuTri;
 	private Integer ketQuaKham;
  
-	private Long userId;
-	private String dateEnd;
+ 
+	private String dateEndString;
 	
 	private BigDecimal totalAmount;
 
+	private List<CreateInvoiceDetailRequest> details;
+	
+	
 	public Long getPatientId() {
 		return patientId;
 	}
 
 	public void setPatientId(Long patientId) {
 		this.patientId = patientId;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public Long getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Long productId) {
+		this.productId = productId;
 	}
 
 	public Integer getObjectType() {
@@ -52,20 +74,20 @@ public class CreateInvoiceRequest {
 		this.numberBHYT = numberBHYT;
 	}
 
-	public String getFromDate() {
-		return fromDate;
+	public String getFromDateString() {
+		return fromDateString;
 	}
 
-	public void setFromDate(String fromDate) {
-		this.fromDate = fromDate;
+	public void setFromDateString(String fromDateString) {
+		this.fromDateString = fromDateString;
 	}
 
-	public String getToDate() {
-		return toDate;
+	public String getToDateString() {
+		return toDateString;
 	}
 
-	public void setToDate(String toDate) {
-		this.toDate = toDate;
+	public void setToDateString(String toDateString) {
+		this.toDateString = toDateString;
 	}
 
 	public Integer getRoutingType() {
@@ -92,12 +114,12 @@ public class CreateInvoiceRequest {
 		this.form = form;
 	}
 
-	public String getDateStart() {
-		return dateStart;
+	public String getDateStartString() {
+		return dateStartString;
 	}
 
-	public void setDateStart(String dateStart) {
-		this.dateStart = dateStart;
+	public void setDateStartString(String dateStartString) {
+		this.dateStartString = dateStartString;
 	}
 
 	public String getTrieuChung() {
@@ -164,20 +186,12 @@ public class CreateInvoiceRequest {
 		this.ketQuaKham = ketQuaKham;
 	}
 
-	public Long getUserId() {
-		return userId;
+	public String getDateEndString() {
+		return dateEndString;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
-
-	public String getDateEnd() {
-		return dateEnd;
-	}
-
-	public void setDateEnd(String dateEnd) {
-		this.dateEnd = dateEnd;
+	public void setDateEndString(String dateEndString) {
+		this.dateEndString = dateEndString;
 	}
 
 	public BigDecimal getTotalAmount() {
@@ -187,6 +201,16 @@ public class CreateInvoiceRequest {
 	public void setTotalAmount(BigDecimal totalAmount) {
 		this.totalAmount = totalAmount;
 	}
+
+	public List<CreateInvoiceDetailRequest> getDetails() {
+		return details;
+	}
+
+	public void setDetails(List<CreateInvoiceDetailRequest> details) {
+		this.details = details;
+	}
+
+	 
 	
 	
 	
